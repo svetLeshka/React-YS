@@ -1,0 +1,15 @@
+.t {
+	color: red;
+}
+
+.a {
+	color: green;
+}
+
+.fz {
+	font-size: 25px;
+	&__yellow {
+		font-size: 25px;
+		color: yellow;
+	}
+}
