@@ -1,4 +1,4 @@
-import useCount from '../hooks/useCount';
+import useCount from '../../hooks/useCount';
 import FilmInfo from '../FilmInfo/FilmInfo';
 import FilmReviews from '../FilmReviews/FilmReviews';
 

@@ -1,8 +1,36 @@
+$main-color: #333333;
+
 body {
 	font-family: 'YSText', sans-serif;;
 	font-weight: 400;
+	font-size: 15px;
+	line-height: 15px;
+	color: $main-color;
+	background-color: #F5F5F5;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
 	&._lock {
 		overflow: hidden;
 	}
 }
 
+.container {
+	max-width: 1200px;
+	width: 100%;
+	padding: 0 30px;
+	margin: 0 auto;
+}
+
+._visually-hidden {
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	margin: -1px;
+  }

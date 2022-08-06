@@ -1,10 +1,10 @@
-$font-directory: "../public/fonts/YSText";
+$font-directory: "../public/fonts";
 
 @font-face {
     font-family: "YSText";
-    src: url("#{$font-directory}/YandexSansText-Thin.woff") format("woff"),
-		url("#{$font-directory}/YandexSansText-Thin.woff2") format("woff2"),
-		url("#{$font-directory}/YandexSansText-Thin.ttf") format("truetype");
+    src: url("#{$font-directory}/YSText/YandexSansText-Thin.woff") format("woff"),
+		url("#{$font-directory}/YSText/YandexSansText-Thin.woff2") format("woff2"),
+		url("#{$font-directory}/YSText/YandexSansText-Thin.ttf") format("truetype");
 
     font-style: normal;
     font-weight: 100;
@@ -13,9 +13,9 @@ $font-directory: "../public/fonts/YSText";
 
 @font-face {
     font-family: "YSText";
-    src: url("#{$font-directory}/YandexSansText-Regular.woff") format("woff"),
-		url("#{$font-directory}/YandexSansText-Regular.woff2") format("woff2"),
-		url("#{$font-directory}/YandexSansText-Regular.ttf") format("truetype");
+    src: url("#{$font-directory}/YSText/YandexSansText-Regular.woff") format("woff"),
+		url("#{$font-directory}/YSText/YandexSansText-Regular.woff2") format("woff2"),
+		url("#{$font-directory}/YSText/YandexSansText-Regular.ttf") format("truetype");
 
     font-style: normal;
     font-weight: 400;
@@ -24,31 +24,20 @@ $font-directory: "../public/fonts/YSText";
 
 @font-face {
     font-family: "YSText";
-	src: url("#{$font-directory}/YandexSansText-Medium.woff") format("woff"),
-		url("#{$font-directory}/YandexSansText-Medium.woff2") format("woff2"),
-		url("#{$font-directory}/YandexSansText-Medium.ttf") format("truetype");
+	src: url("#{$font-directory}/YSText/YandexSansText-Medium.woff") format("woff"),
+		url("#{$font-directory}/YSText/YandexSansText-Medium.woff2") format("woff2"),
+		url("#{$font-directory}/YSText/YandexSansText-Medium.ttf") format("truetype");
 
     font-style: normal;
     font-weight: 500;
     font-display: swap;
 }
 
-/* @font-face {
-	font-family: "YSText";
-	src: url("#{$font-directory}/YandexSansText-SemiBold.woff") format("woff"),
-		url("#{$font-directory}/YandexSansText-SemiBold.woff2") format("woff2"),
-		url("#{$font-directory}/YandexSansText-SemiBold.ttf") format("truetype");
-
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-} */
-
 @font-face {
 	font-family: "YSText";
-	src: url("#{$font-directory}/YandexSansText-Bold.woff") format("woff"),
-		url("#{$font-directory}/YandexSansText-Bold.woff2") format("woff2"),
-		url("#{$font-directory}/YandexSansText-Bold.ttf") format("truetype");
+	src: url("#{$font-directory}/YSText/YandexSansText-Bold.woff") format("woff"),
+		url("#{$font-directory}/YSText/YandexSansText-Bold.woff2") format("woff2"),
+		url("#{$font-directory}/YSText/YandexSansText-Bold.ttf") format("truetype");
 
     font-style: normal;
     font-weight: 700;
@@ -56,24 +45,13 @@ $font-directory: "../public/fonts/YSText";
 }
 
 
-/* @font-face {
-	font-family: "YSText";
-	src: url("#{$font-directory}/YandexSansText-ExtraBold.woff") format("woff"),
-		url("#{$font-directory}/YandexSansText-ExtraBold.woff2") format("woff2"),
-		url("#{$font-directory}/YandexSansText-ExtraBold.ttf") format("truetype");
-
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
-} */
-/* 
 @font-face {
 	font-family: 'iconfont';
-	src: url('#{$font-directory}/../iconfont/iconfont.eot?6zqavm');
-	src: url('#{$font-directory}/../iconfont/iconfont.eot?6zqavm#iefix') format('embedded-opentype'),
-	url('#{$font-directory}/../iconfont/iconfont.woff?6zqavm') format('woff'),
-	url('#{$font-directory}/../iconfont/iconfont.ttf?6zqavm') format('truetype'),
-	url('#{$font-directory}/../iconfont/iconfont.svg?6zqavm#icons') format('svg');
+	src: url('#{$font-directory}/iconfont/iconfont.eot?6zqavm');
+	src: url('#{$font-directory}/iconfont/iconfont.eot?6zqavm#iefix') format('embedded-opentype'),
+	url('#{$font-directory}/iconfont/iconfont.woff?6zqavm') format('woff'),
+	url('#{$font-directory}/iconfont/iconfont.ttf?6zqavm') format('truetype'),
+	url('#{$font-directory}/iconfont/iconfont.svg?6zqavm#icons') format('svg');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -95,4 +73,23 @@ $font-directory: "../public/fonts/YSText";
 		@extend %ic;
 		display: inline-block;
 	}
-} */
+}
+
+._icon-comment:before {
+	content: "\e900";
+  }
+  ._icon-description:before {
+	content: "\e901";
+  }
+  ._icon-arrow-down:before {
+	content: "\e903";
+  }
+  ._icon-close:before {
+	content: "\e904";
+  }
+  ._icon-dots:before {
+	content: "\e905";
+  }
+  ._icon-ok:before {
+	content: "\e907";
+  }

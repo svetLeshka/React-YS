@@ -1,0 +1,72 @@
+@import '/src/global.scss';
+.task-card {
+
+	&__wrapper {
+		background: #FFFFFF;
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+		border-radius: 6px;
+		padding: 12px;
+	}
+
+	&__header {
+		display: flex;
+		flex-direction: row;
+		gap: 6px;
+		margin-bottom: 10px;
+	}
+
+	&__title {
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 15px;
+		flex: 1 1 auto;
+	}
+
+	&__link {
+		&::before {
+			color: #929292;
+		}
+		&:hover {
+			&::before {
+				color: $main-color;
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: row;
+		gap: 6px;
+	}
+
+	&__tags {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	&__info {
+		width: 42px;
+		margin-right: -2px;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: flex-end;
+		gap: 2px;
+	}
+
+	&__com {
+
+		&::before {
+			font-size: 20px;
+		}
+	}
+
+	&__desc {
+		
+		&::before {
+			font-size: 20px;
+		}
+	}
+}

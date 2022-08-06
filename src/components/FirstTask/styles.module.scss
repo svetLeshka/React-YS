@@ -1,0 +1,15 @@
+.first-task {
+	> *:not(:last-child) {
+		margin-bottom: 10px;
+	}
+
+	&__tags {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	&__card {
+		width: 249px;
+	}
+}
