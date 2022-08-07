@@ -12,4 +12,21 @@
 	&__card {
 		width: 249px;
 	}
+
+	&__btn {
+		width: 250px;
+	}
+
+	&__inputs {
+		width: 312px;
+		> *:first-child {
+			margin-bottom: 8px;
+		}
+	}
+
+	&__comment {
+		width: 440px;
+		padding: 0 11px;
+		box-sizing: border-box;
+	}
 }

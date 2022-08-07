@@ -1,4 +1,5 @@
-@import '/src/global.scss';
+$main-color: #333333;
+
 .task-card {
 
 	&__wrapper {
@@ -36,6 +37,7 @@
 	&__content {
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 		gap: 6px;
 	}
 

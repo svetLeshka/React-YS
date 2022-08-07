@@ -1,3 +1,5 @@
+$main-color: #333333;
+
 .checkbox {
 
 	&__item {
@@ -5,8 +7,15 @@
 		flex-direction: row;
 		align-items: center;
 		gap: 6px;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.2s linear, visibility 0.2s linear;
 		&:hover {
 			cursor: pointer;
+		}
+		&._show {
+			opacity: 1;
+			visibility: visible;
 		}
 	}
 
@@ -17,6 +26,11 @@
 					opacity: 1;
 					visibility: visible;
 				}
+			}
+		}
+		&:focus:not(:read-only) {
+			+ span {
+				box-shadow: 0 0 1px 0 $main-color;
 			}
 		}
 	}

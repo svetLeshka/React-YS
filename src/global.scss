@@ -10,6 +10,7 @@ body {
 	overflow-x: hidden;
 	overflow-y: auto;
 	position: relative;
+	padding-top: 36px;
 	&._lock {
 		overflow: hidden;
 	}
@@ -33,4 +34,8 @@ body {
 	clip: rect(0 0 0 0);
 	clip-path: inset(50%);
 	margin: -1px;
-  }
+}
+
+*:focus {
+	box-shadow: 0 0 1px 0 $main-color;
+}
