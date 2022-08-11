@@ -1,0 +1,56 @@
+$btn-yellow: #FFE445;
+$main-color: #333333;
+
+.btn {
+
+	&__btn {
+		outline: none;
+		border: none;
+		display: inline-flex;
+		flex-direction: row;
+		gap: 7px;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__add-ticket {
+		width: 100%;
+		padding: 14px 0 13px;
+		background-color: $btn-yellow;
+		border-radius: 5px;
+		transition: opacity 0.2s linear;
+		&:hover {
+			cursor: pointer;
+			opacity: 0.8;
+		}
+	}
+
+	&__text {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	&__with-plus {
+		width: 9px;
+		height: 9px;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&::before,
+		&::after {
+			content: '';
+			width: 9px;
+			height: 1.4px;
+			background-color: $main-color;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			border-radius: 0.7px;
+		}
+		&::after {
+			transform: rotateZ(90deg);
+		}
+	}
+}

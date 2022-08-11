@@ -1,0 +1,39 @@
+$violet: #EEE1FD;
+$green: #BAF8CF;
+$red: #FED6CC;
+$orange: #FFDCB6;
+$blue: #B8E6FF;
+$light-green: #D8FCB0;
+$dark-blue: #C6D9FF;
+$yellow: #FFF4C7;
+
+.tags {
+
+	&__tag {
+		border-radius: 2px;
+		&_violet {
+			background-color: $violet;
+		}
+		&_green {
+			background-color: $green;
+		}
+		&_red {
+			background-color: $red;
+		}
+		&_orange {
+			background-color: $orange;
+		}
+		&_blue {
+			background-color: $blue;
+		}
+		&_light-green {
+			background-color: $light-green;
+		}
+		&_dark-blue {
+			background-color: $dark-blue;
+		}
+		&_yellow {
+			background-color: $yellow;
+		}
+	}
+}
