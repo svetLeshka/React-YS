@@ -1,14 +1,20 @@
 import SecondTask from "SecondTask/components/SecondTask/SecondTask"
 import FirstTask from "FirstTask/components/FirstTask/FirstTask"
-import { useMemo } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import MultiSelector from "components/MultiSelector/MultiSelector"
+import ChosenTags from "components/ChosenTags/ChosenTags"
+import { useCallback, useMemo } from "react"
 import ReactDOM from "react-dom"
+import { changeCheckboxStateInEditing } from "./store/appSlice"
 
 export const App = () => {
+	const dispatch = useDispatch();
+	const tasks = Object.entries(useSelector(state => state["tasks"]));
 	return (
 		<>
 			<div className="container">
-				{/* <FirstTask /> */}
-				{<SecondTask />}
+				<ChosenTags />
+				<MultiSelector />
 			</div>
 		</>
 	)

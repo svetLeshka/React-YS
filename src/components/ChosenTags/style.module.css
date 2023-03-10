@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    position: relative;
+}
+.tag:hover > span {
+    opacity: 1;
+    visibility: visible;
+}
+
+.del {
+    position: absolute;
+    right: 5.5px;
+    top: 5.5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 7px;
+    line-height: 7px;
+}
+.del::before {
+    font-size: 7px;
+    line-height: 7;
+    color: #929292;
+}
+.del:hover {
+    cursor: pointer;
+    color: #000;
+}
