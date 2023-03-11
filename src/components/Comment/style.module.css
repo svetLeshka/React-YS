@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+}
+
+.close {
+    transition: opacity 0.2s linear;
+}
+.close::before {
+    color: #929292;
+}
+.close:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.content {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 19px;
+    color: #565656;
+}

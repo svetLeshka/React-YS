@@ -15,8 +15,8 @@ const TaskCardContent = ({id}) => {
             }
         </div>
         <div className={styles['info']}>
-            {Boolean(card.icons.includes('coms')) && <div className={`${styles['com']} _icon-comment`} />}
-            {Boolean(card.icons.includes('desc')) && <div className={`${styles['desc']} _icon-description`} />}
+            {Boolean(card.comments.length !== 0) && <div className={`${styles['com']} _icon-comment`} />}
+            {Boolean(card.desc.length !== 0) && <div className={`${styles['desc']} _icon-description`} />}
         </div>
     </div>
   )

@@ -1,0 +1,12 @@
+.filter {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    margin-bottom: 80px;
+}
+
+.progress {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
