@@ -1,10 +1,9 @@
 import { Modal } from "App"
 import styles from './styles.module.css'
 import classnames from "classnames"
-import { useSelector } from "react-redux"
+import EditTicket from "components/EditTicket/EditTicket"
 
-const EditingTicketPopUp = ({ id, setModal }) => {
-    const task = useSelector(state => state['tasks'])[id];
+const EditingTicketPopUp = ({ id, setModal, isEdit }) => {
   return (
     <Modal>
         <div className={classnames(styles['pop-up'], (Boolean(true) && styles['_show']))}>
@@ -13,15 +12,7 @@ const EditingTicketPopUp = ({ id, setModal }) => {
                 className={styles['bg']}
             />
             <div className={styles['wrapper']}>
-                <div
-                    onClick={() => setModal()}
-                    className={classnames(styles['close'], '_icon-close')}
-                />
-                {/* <Ticket
-                    closeTicket={closeTicket}
-                    isTicketShown={isTicketShown}
-                    isTicketEditable={isTicketEditable}
-                /> */}
+                {Boolean(isEdit) && <EditTicket id={id} setModal={setModal} />}
             </div>
         </div>
     </Modal>

@@ -9,7 +9,7 @@ const ChosenTags = () => {
     const tags = useSelector(state => state['editingTask'].tags);
     const dispatch = useDispatch();
     const setTag = useCallback((tag) => {
-        dispatch(changeCheckboxStateInEditing(tag));
+        dispatch(changeCheckboxStateInEditing([tag]));
     }, [dispatch])
   return (
     <div className={styles['wrapper']}>

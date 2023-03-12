@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 
-const TextInput = ({isTextArea, placeholderText, name}) => {
+const TextInput = ({isTextArea, placeholderText, name, value = ''}) => {
   return (
     <>
      {
@@ -10,12 +10,14 @@ const TextInput = ({isTextArea, placeholderText, name}) => {
                 className={styles['textarea']}
                 placeholder={placeholderText}
                 rows={9}
+                defaultValue={value}
             />) ||
         <input
             name={name}
             className={styles['text']}
             type="text"
             placeholder={placeholderText}
+            defaultValue={value}
         /> 
     }
     </>

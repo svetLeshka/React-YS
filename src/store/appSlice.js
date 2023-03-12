@@ -57,23 +57,66 @@ export const appSlice = createSlice({
     initialState: initialValue,
     reducers: {
         changeCheckboxStateInEditing: (state, action) => {
-            const newTag = action.payload;
-            const tagIndex = state.editingTask.tags.indexOf(newTag);
-            if(tagIndex !== -1) {
-                state.editingTask.tags.splice(tagIndex, 1);
-            } else {
-                state.editingTask.tags.push(newTag);
-            }
+            const newTags = action.payload;
+            newTags.forEach(newTag => {
+                const tagIndex = state.editingTask.tags.indexOf(newTag);
+                if(tagIndex !== -1) {
+                    state.editingTask.tags.splice(tagIndex, 1);
+                } else {
+                    state.editingTask.tags.push(newTag);
+                } 
+            });
+        },
+        changeNewTagsInEditing: (state, action) => {
+            state.editingTask.tags = action.payload;
+        },
+        changeComsStateInEditing: (state, action) => {
+            const newComs = action.payload;
+            newComs.forEach(newCom => {
+                let tagIndex = -1;
+                state.editingTask.comments.forEach((el, index) => {
+                    //eslint-disable-next-line
+                    if(el.id == newCom.id) tagIndex = index;
+                });
+                if(tagIndex !== -1) {
+                    state.editingTask.comments.splice(tagIndex, 1);
+                } else {
+                    state.editingTask.comments.push(newCom);
+                } 
+            });
+        },
+        changeNewComsInEditing: (state, action) => {
+            state.editingTask.comments = action.payload;
         },
         changeFilterState: (state, action) => {
             state.filters[action.payload].checked = !state.filters[action.payload].checked;
+        },
+        updateEditingTicketText: (state, action) => {
+            const t = state.editingTask;
+            const p = action.payload;
+            if(p.stage) t.stage = p.stage;
+            if(p.title) t.title = p.title;
+            if(p.desc) t.desc = p.desc;
+        },
+        updateTicket: (state, action) => {
+            const p = action.payload;
+            const t = state.tasks[p.id];
+            if(p.stage) t.stage = p.stage;
+            if(p.title) t.title = p.title;
+            if(p.desc) t.desc = p.desc;
+            if(p.tags) t.tags = p.tags;
         }
     }
 })
 
 export const {
     changeCheckboxStateInEditing,
-    changeFilterState
+    changeFilterState,
+    updateEditingTicketText,
+    changeComsStateInEditing,
+    updateTicket,
+    changeNewTagsInEditing,
+    changeNewComsInEditing
 } = appSlice.actions;
 
 export default appSlice.reducer;

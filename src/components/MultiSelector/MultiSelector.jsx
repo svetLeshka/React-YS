@@ -11,7 +11,7 @@ const MultiSelector = () => {
     const [isOpen, setOpen] = useState(false);
     const dispatch = useDispatch();
     const setTag = useCallback((tag) => {
-        dispatch(changeCheckboxStateInEditing(tag));
+        dispatch(changeCheckboxStateInEditing([tag]));
     }, [dispatch])
     const tags = useSelector(state => state['editingTask'].tags);
   return (
