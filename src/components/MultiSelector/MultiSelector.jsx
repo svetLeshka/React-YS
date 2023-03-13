@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 import styles from './style.module.css'
-import { colors } from "constants/constants";
+import { Colors } from "constants/constants";
 import Tag from "components/Tag/Tag";
 import Checkbox from "components/Checkbox/Checkbox";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,7 +22,7 @@ const MultiSelector = () => {
         >Выбрать тег</div>
         <div className={`${styles['dropdown']}${(Boolean(isOpen) ? ' '+styles['_show'] : '')}`}>
             {
-                Array.from(Object.entries(colors)).map(entry => {
+                Array.from(Object.entries(Colors)).map(entry => {
                     const checked = tags.includes(entry[0]);
                     return (
                         <label key={entry[0]} className={styles['select']} onClick={() => {}}>

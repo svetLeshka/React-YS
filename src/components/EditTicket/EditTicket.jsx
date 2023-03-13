@@ -6,8 +6,8 @@ import ChosenTags from 'components/ChosenTags/ChosenTags'
 import Button from 'components/Button/Button'
 import { updateTicket } from 'store/appSlice'
 
-const EditTicket = ({id, setModal}) => {
-    const ticket = useSelector(state => state['tasks'][id]);
+const EditTicket = ({ id = -1, isEdit, setModal, setTicket}) => {
+    const ticket = useSelector(state => state['editingTask']);
     const dispatch = useDispatch();
     const submitChanges = (event) => {
         event.preventDefault();
@@ -18,13 +18,13 @@ const EditTicket = ({id, setModal}) => {
             if(input.name === 'description') desc = input.value;
             if(input.type === 'checkbox' && input.checked) tags.push(input.name);
         });
-        dispatch(updateTicket({stage: stage, title: title, desc: desc, tags: tags, id: id}));
+        setTicket({stage: stage, title: title, desc: desc, tags: tags, id: id});
         setModal();
     }
   return (
     <>
-        <div className={`${styles.close} _icon-close`} onClick={() => setModal()} />
-        <p className={styles.header}>Редактировать</p>
+        <div className={`${styles.close} _icon-close`} onClick={setModal} />
+        {Boolean(isEdit) ? <p className={styles.header}>Редактировать</p> : <p className={styles.header}>Создать тикет</p>}
         <form method='POST' className={styles.content} onSubmit={(event) => submitChanges(event)}>
             <div className={styles['text-wrapper']}>
                 <TextInput value={ticket.title} name={'title'} isTextArea={false} placeholderText={'Название'} />

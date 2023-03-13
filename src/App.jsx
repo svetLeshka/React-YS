@@ -1,6 +1,6 @@
-import SecondTask from "SecondTask/components/SecondTask/SecondTask"
+import SecondTask from "./SecondTask/components/SecondTask/SecondTask"
 import { useSelector, useDispatch } from "react-redux"
-import MainPage from "pages/MainPage/MainPage"
+import MainPage from "./pages/MainPage/MainPage"
 import { useCallback, useMemo } from "react"
 import ReactDOM from "react-dom"
 

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialValue = {
     tasks: {
-        1: {
+        0: {
             stage: 'todo',
             title: "Нарисовать иллюстрации",
             desc: '123',
@@ -15,14 +15,14 @@ const initialValue = {
                 }
             ]
         },
-        2: {
+        1: {
             stage: 'progress',
             title: "Сверстать лендинг по готовому шаблону",
             desc: '',
             tags: ["violet", 'green', 'orange'],
             comments: []
         },
-        3: {
+        2: {
             stage: 'done',
             title: 'Нарисовать иллюстрации',
             desc: '',
@@ -94,17 +94,32 @@ export const appSlice = createSlice({
         updateEditingTicketText: (state, action) => {
             const t = state.editingTask;
             const p = action.payload;
-            if(p.stage) t.stage = p.stage;
-            if(p.title) t.title = p.title;
-            if(p.desc) t.desc = p.desc;
+            if(p.stage !== undefined) t.stage = p.stage;
+            if(p.title !== undefined) t.title = p.title;
+            if(p.desc !== undefined) t.desc = p.desc;
         },
         updateTicket: (state, action) => {
             const p = action.payload;
-            const t = state.tasks[p.id];
-            if(p.stage) t.stage = p.stage;
-            if(p.title) t.title = p.title;
-            if(p.desc) t.desc = p.desc;
-            if(p.tags) t.tags = p.tags;
+            let t;
+            if(p.id >= 0) {
+                t = state.tasks[p.id];
+            } else {
+                let c = 0;
+                for(const key of Object.keys(state.tasks)){
+                    if(Number(key) === c) {
+                        c++;
+                    } else {
+                        break;
+                    }
+                }
+                state.tasks[c] = t = {};
+                t.comments = [];
+            }
+            if(p.stage !== undefined) t.stage = p.stage;
+            if(p.title !== undefined) t.title = p.title;
+            if(p.desc !== undefined) t.desc = p.desc;
+            if(p.tags !== undefined) t.tags = p.tags;
+            if(p.comments !== undefined) t.comments = p.comments;
         }
     }
 })

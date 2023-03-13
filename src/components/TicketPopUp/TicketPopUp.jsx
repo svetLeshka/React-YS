@@ -3,16 +3,16 @@ import styles from './styles.module.css'
 import classnames from "classnames"
 import EditTicket from "components/EditTicket/EditTicket"
 
-const EditingTicketPopUp = ({ id, setModal, isEdit }) => {
+const EditingTicketPopUp = ({ id, setModal, isEdit, setTicket }) => {
   return (
     <Modal>
         <div className={classnames(styles['pop-up'], (Boolean(true) && styles['_show']))}>
             <div
-                onClick={() => setModal()}
+                onClick={() => setModal(false)}
                 className={styles['bg']}
             />
             <div className={styles['wrapper']}>
-                {Boolean(isEdit) && <EditTicket id={id} setModal={setModal} />}
+              <EditTicket isEdit={isEdit} setTicket={setTicket} id={id} setModal={() => setModal(false)} />
             </div>
         </div>
     </Modal>

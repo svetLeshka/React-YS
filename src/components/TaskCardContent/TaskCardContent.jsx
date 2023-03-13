@@ -1,7 +1,7 @@
 import Tag from "components/Tag/Tag"
 import styles from "./styles.module.css"
 import { useSelector } from "react-redux"
-import { colors } from "constants/constants"
+import { Colors } from "constants/constants"
 
 const TaskCardContent = ({id}) => {
     const card = useSelector(state => state['tasks'][id]);
@@ -10,7 +10,7 @@ const TaskCardContent = ({id}) => {
         <div className={styles['tags']}>
             {
                 card.tags.map(tag => {
-                    return <Tag key={tag} color={colors[tag]} w="40px" h="18px" />
+                    return <Tag key={tag} color={Colors[tag]} w="40px" h="18px" />
                 })
             }
         </div>
