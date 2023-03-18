@@ -28,14 +28,32 @@ const initialValue = {
             desc: '',
             tags: ['blue', 'green', 'yellow'],
             comments: []
+        },
+        3: {
+            stage: 'progress',
+            title: 'Нарисовать иллюстрации',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, s',
+            tags: ['green'],
+            comments: []
         }
     },
     editingTask: {
-        stage: '',
-        title: "",
-        desc: '',
-        tags: [],
-        comments: []
+        stage: 'todo',
+        title: "Нарисовать иллюстрации",
+        desc: '123',
+        tags: ["violet", 'green'],
+        comments: [
+            {
+                id: 1,
+                author: 'Иванов Иван',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
+            },
+            {
+                id: 2,
+                author: 'Иванов Иван',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
+            }
+        ]
     },
     filters: {
         com: {
@@ -73,14 +91,17 @@ export const appSlice = createSlice({
         changeComsStateInEditing: (state, action) => {
             const newComs = action.payload;
             newComs.forEach(newCom => {
+                let countId = 1;
                 let tagIndex = -1;
                 state.editingTask.comments.forEach((el, index) => {
+                    countId = (el.id == countId) ? countId+1 : countId;
                     //eslint-disable-next-line
                     if(el.id == newCom.id) tagIndex = index;
                 });
                 if(tagIndex !== -1) {
                     state.editingTask.comments.splice(tagIndex, 1);
                 } else {
+                    newCom.id = countId;
                     state.editingTask.comments.push(newCom);
                 } 
             });

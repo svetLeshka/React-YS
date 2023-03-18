@@ -12,7 +12,7 @@ const EditingTicketPopUp = ({ id, setModal, isEdit, setTicket }) => {
                 className={styles['bg']}
             />
             <div className={styles['wrapper']}>
-              <EditTicket isEdit={isEdit} setTicket={setTicket} id={id} setModal={() => setModal(false)} />
+              <EditTicket isEdit={isEdit} isNew={!isEdit} setTicket={setTicket} id={id} setModal={() => setModal(false)} />
             </div>
         </div>
     </Modal>

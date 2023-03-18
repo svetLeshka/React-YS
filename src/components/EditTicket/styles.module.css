@@ -26,6 +26,14 @@
     gap: 14px;
 }
 
+.footer-new {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 11px;
+    padding-right: 11px;
+}
+
 .close {
     margin-right: 6px;
     margin-top: 5px;

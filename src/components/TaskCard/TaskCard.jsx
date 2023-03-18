@@ -25,7 +25,7 @@ const TaskCard = ({id}) => {
         }} className={styles['wrapper']}>
             <TaskCardHeader id={id} />
             <TaskCardContent id={id} />
-            {Boolean(isModalShown) && <EditingTicketPopUp setTicket={(ticket) => updateAfterSave(ticket)} isEdit={true} id={id} setModal={toggleTicket} />}
+            {Boolean(isModalShown) && <EditingTicketPopUp setTicket={(ticket) => updateAfterSave(ticket)} isEdit={true} isNew={false} id={id} setModal={toggleTicket} />}
         </div>
   )
 }

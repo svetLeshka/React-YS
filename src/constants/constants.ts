@@ -8,3 +8,8 @@ export const Colors: Record<string, string> = {
     darkBlue: '#C6D9FF',
     yellow: '#FFF4C7'
 }
+
+export enum ButtonsClasses {
+    SAVE_CHANGES = 'add-ticket',
+    ADD_COMMENT = 'add-comment'
+}

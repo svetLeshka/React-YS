@@ -1,12 +1,12 @@
 export interface ICom {
-    id: number,
+    id?: number,
     author: string,
     text: string
 }
 
 export interface ITicket {
-    stage?: string,
-    title?: string,
+    stage: string,
+    title: string,
     desc?: string,
     tags?: string[],
     comments?: ICom[]
