@@ -8,7 +8,7 @@
 .tag {
     position: relative;
 }
-.tag:hover > span {
+.tag-hover:hover > span {
     opacity: 1;
     visibility: visible;
 }

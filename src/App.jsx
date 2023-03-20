@@ -1,4 +1,3 @@
-import SecondTask from "./SecondTask/components/SecondTask/SecondTask"
 import { useSelector, useDispatch } from "react-redux"
 import MainPage from "./pages/MainPage/MainPage"
 import { useCallback, useMemo } from "react"
@@ -11,7 +10,7 @@ export const App = () => {
 		<>
 			<div className="container">
 				{/* <MainPage /> */}
-				<TicketPage />
+				<TicketPage id={2} />
 			</div>
 		</>
 	)

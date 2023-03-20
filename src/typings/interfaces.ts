@@ -18,7 +18,7 @@ export interface IFilter {
 }
 
 export interface IInitialValue {
-    'tasks': {number: ITicket},
+    'tasks': Record<number, ITicket>,
     'editingTask': ITicket,
     'filters': {
         com: IFilter,

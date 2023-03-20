@@ -17,14 +17,6 @@
     line-height: 19px;
 }
 
-.dots {
-    
-}
-.dots::before {
-    font-size: 13px;
-    line-height: 3px;
-}
-
 .ticket {
     box-shadow: 0px 0px 1px 1px #CACACA;
     border-radius: 7px;

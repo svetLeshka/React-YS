@@ -7,22 +7,26 @@ import { ButtonsClasses } from 'constants/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { ICom, IInitialValue } from 'typings/interfaces'
 import { changeComsStateInEditing } from 'store/appSlice'
+import { useForm, SubmitHandler } from 'react-hook-form'
 
 export interface IComPopUpProps {
     isShow: boolean,
     setModal: Function
 }
 
+export interface IInputsCom {
+    author: string,
+    text: string,
+}
+
 const ComPopUp = ({ isShow, setModal }: IComPopUpProps) => {
-    const ticket = useSelector((state: IInitialValue) => state['editingTask']);
     const dispatch = useDispatch();
     const addCom = useCallback((com: ICom) => {
         dispatch(changeComsStateInEditing([com]));
     }, [dispatch]);
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const form = event.target as HTMLFormElement;
-        addCom({author: form.author.value, text: form.desc.value});
+    const { register, handleSubmit, formState: { errors } } = useForm<IInputsCom>();
+    const onSubmit: SubmitHandler<IInputsCom> = (inputs) => {
+        addCom({author: inputs.author, text: inputs.text});
         setModal(false);
     }
     if(isShow) {
@@ -37,10 +41,24 @@ const ComPopUp = ({ isShow, setModal }: IComPopUpProps) => {
                         <div className={`${styles.close} _icon-close`} onClick={() => setModal(false)} />
                         <div className={styles.content}>
                             <p className={styles.title}>Добавить комментарий</p>
-                            <form method='POST' onSubmit={(event) => onSubmit(event)} className={styles.form}>
+                            <form method='POST' onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                                 <div className={styles.inputs}>
-                                    <TextInput isTextArea={false} placeholderText={'Имя'} name="author" />
-                                    <TextInput isTextArea={true} placeholderText={'Комментарий'} name="desc" />
+                                    <TextInput
+                                        register={register}
+                                        required={true}
+                                        error={errors.author}
+                                        isTextArea={false}
+                                        placeholderText={'Имя'}
+                                        name="author"
+                                    />
+                                    <TextInput
+                                        register={register}
+                                        required={true}
+                                        error={errors.text}
+                                        isTextArea={true}
+                                        placeholderText={'Комментарий'}
+                                        name="text"
+                                    />
                                 </div>
                                 <Button 
                                     clickFn={() => {}}

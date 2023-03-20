@@ -38,6 +38,7 @@ const initialValue = {
         }
     },
     editingTask: {
+        id: -1,
         stage: 'todo',
         title: "Нарисовать иллюстрации",
         desc: '123',
@@ -94,7 +95,7 @@ export const appSlice = createSlice({
                 let countId = 1;
                 let tagIndex = -1;
                 state.editingTask.comments.forEach((el, index) => {
-                    countId = (el.id == countId) ? countId+1 : countId;
+                    countId = (el.id === countId) ? countId+1 : countId;
                     //eslint-disable-next-line
                     if(el.id == newCom.id) tagIndex = index;
                 });
@@ -141,6 +142,16 @@ export const appSlice = createSlice({
             if(p.desc !== undefined) t.desc = p.desc;
             if(p.tags !== undefined) t.tags = p.tags;
             if(p.comments !== undefined) t.comments = p.comments;
+        },
+        updateEditingTicket: (state, action) => {
+            const p = action.payload;
+            const t = state.editingTask;
+            if(p.id !== undefined) t.id = p.id;
+            if(p.stage !== undefined) t.stage = p.stage;
+            if(p.title !== undefined) t.title = p.title;
+            if(p.desc !== undefined) t.desc = p.desc;
+            if(p.tags !== undefined) t.tags = p.tags;
+            if(p.comments !== undefined) t.comments = p.comments;
         }
     }
 })
@@ -151,6 +162,7 @@ export const {
     updateEditingTicketText,
     changeComsStateInEditing,
     updateTicket,
+    updateEditingTicket,
     changeNewTagsInEditing,
     changeNewComsInEditing
 } = appSlice.actions;
