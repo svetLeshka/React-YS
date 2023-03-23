@@ -13,3 +13,7 @@ export enum ButtonsClasses {
     SAVE_CHANGES = 'add-ticket',
     ADD_COMMENT = 'add-comment'
 }
+
+export const dragTypes = {
+    card: 'card'
+}

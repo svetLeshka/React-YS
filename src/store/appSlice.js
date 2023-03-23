@@ -75,6 +75,9 @@ export const appSlice = createSlice({
     name: "todo",
     initialState: initialValue,
     reducers: {
+        changeCardStage: (state, action) => {
+            state.tasks[action.payload.id].stage = action.payload.stage;
+        },
         changeCheckboxStateInEditing: (state, action) => {
             const newTags = action.payload;
             newTags.forEach(newTag => {
@@ -157,6 +160,7 @@ export const appSlice = createSlice({
 })
 
 export const {
+    changeCardStage,
     changeCheckboxStateInEditing,
     changeFilterState,
     updateEditingTicketText,
