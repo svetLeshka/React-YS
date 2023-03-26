@@ -13,7 +13,7 @@ const Stage = ({ isAddable, stage, title }) => {
     const dispatch = useDispatch();
     const changeStage = useCallback((id, stageTask) => {
         if(stageTask !== stage) dispatch(changeCardStage({id: id, stage: stage}))
-    }, [dispatch]);
+    }, [dispatch, stage]);
     const [{ isOver }, drop] = useDrop(() => ({
         accept: dragTypes.card,
         drop: (item) => changeStage(item.id, item.stage),

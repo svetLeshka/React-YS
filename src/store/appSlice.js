@@ -92,23 +92,22 @@ export const appSlice = createSlice({
         changeNewTagsInEditing: (state, action) => {
             state.editingTask.tags = action.payload;
         },
-        changeComsStateInEditing: (state, action) => {
-            const newComs = action.payload;
+        deleteCom: (state, action) => {
+            const newComs = action.payload.coms;
             newComs.forEach(newCom => {
-                let countId = 1;
                 let tagIndex = -1;
                 state.editingTask.comments.forEach((el, index) => {
-                    countId = (el.id === countId) ? countId+1 : countId;
                     //eslint-disable-next-line
                     if(el.id == newCom.id) tagIndex = index;
                 });
-                if(tagIndex !== -1) {
-                    state.editingTask.comments.splice(tagIndex, 1);
-                } else {
-                    newCom.id = countId;
-                    state.editingTask.comments.push(newCom);
-                } 
+                state.editingTask.comments.splice(tagIndex, 1);
             });
+        },
+        addNewCom: (state, action) => {
+            const newCom = action.payload.com;
+            const task = state.editingTask;
+            newCom.id = (task.comments.length > 0) ? task.comments[task.comments.length-1].id+1 : 1;
+            task.comments.push(newCom);
         },
         changeNewComsInEditing: (state, action) => {
             state.editingTask.comments = action.payload;
@@ -164,7 +163,8 @@ export const {
     changeCheckboxStateInEditing,
     changeFilterState,
     updateEditingTicketText,
-    changeComsStateInEditing,
+    deleteCom,
+    addNewCom,
     updateTicket,
     updateEditingTicket,
     changeNewTagsInEditing,

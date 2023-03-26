@@ -17,3 +17,8 @@ export enum ButtonsClasses {
 export const dragTypes = {
     card: 'card'
 }
+
+export enum TaskActions {
+    EDIT = 'edit',
+    CREATE = 'create'
+}

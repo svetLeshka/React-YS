@@ -1,12 +1,8 @@
 import Filters from 'components/Filters/Filters';
 import styles from './styles.module.css'
 import Stage from 'components/Stage/Stage';
-import { useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { changeFilterState } from 'store/appSlice';
 
 const MainPage = () => {
-    const dispatch = useDispatch();
   return (
     <div className={styles['second-task']}>
         <Filters />

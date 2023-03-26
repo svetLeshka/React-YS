@@ -4,9 +4,9 @@ import styles from './styles.module.css'
 import TextInput from 'components/TextInput/TextInput'
 import Button from 'components/Button/Button'
 import { ButtonsClasses } from 'constants/constants'
-import { useDispatch, useSelector } from 'react-redux'
-import { ICom, IInitialValue } from 'typings/interfaces'
-import { changeComsStateInEditing } from 'store/appSlice'
+import { useDispatch } from 'react-redux'
+import { ICom } from 'typings/interfaces'
+import { addNewCom } from 'store/appSlice'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 export interface IComPopUpProps {
@@ -22,7 +22,7 @@ export interface IInputsCom {
 const ComPopUp = ({ isShow, setModal }: IComPopUpProps) => {
     const dispatch = useDispatch();
     const addCom = useCallback((com: ICom) => {
-        dispatch(changeComsStateInEditing([com]));
+        dispatch(addNewCom({com}));
     }, [dispatch]);
     const { register, handleSubmit, formState: { errors } } = useForm<IInputsCom>();
     const onSubmit: SubmitHandler<IInputsCom> = (inputs) => {
