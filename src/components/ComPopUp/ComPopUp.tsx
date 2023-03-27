@@ -19,7 +19,7 @@ export interface IInputsCom {
     text: string,
 }
 
-const ComPopUp = ({ isShow, setModal }: IComPopUpProps) => {
+const ComPopUp = ({ setModal }: IComPopUpProps) => {
     const dispatch = useDispatch();
     const addCom = useCallback((com: ICom) => {
         dispatch(addNewCom({com}));
@@ -27,57 +27,52 @@ const ComPopUp = ({ isShow, setModal }: IComPopUpProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<IInputsCom>();
     const onSubmit: SubmitHandler<IInputsCom> = (inputs) => {
         addCom({author: inputs.author, text: inputs.text});
-        setModal(false);
+        setModal();
     }
-    if(isShow) {
-        return(
-            <Modal>
-                 <div className={styles['pop-up']}>
-                    <div
-                        onClick={() => setModal(false)}
-                        className={styles['bg']}
-                    />
-                    <div className={styles['wrapper']}>
-                        <div className={`${styles.close} _icon-close`} onClick={() => setModal(false)} />
-                        <div className={styles.content}>
-                            <p className={styles.title}>Добавить комментарий</p>
-                            <form method='POST' onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                                <div className={styles.inputs}>
-                                    <TextInput
-                                        register={register}
-                                        required={true}
-                                        error={errors.author}
-                                        isTextArea={false}
-                                        placeholderText={'Имя'}
-                                        name="author"
-                                    />
-                                    <TextInput
-                                        register={register}
-                                        required={true}
-                                        error={errors.text}
-                                        isTextArea={true}
-                                        placeholderText={'Комментарий'}
-                                        name="text"
-                                    />
-                                </div>
-                                <Button 
-                                    clickFn={() => {}}
-                                    text="Сохранить"
-                                    addedClass={[ButtonsClasses.SAVE_CHANGES]}
-                                    isPlusExist={false}
-                                    isFormSender={true}
+    return(
+        <Modal>
+            <div className={styles['pop-up']}>
+                <div
+                    onClick={() => setModal()}
+                    className={styles['bg']}
+                />
+                <div className={styles['wrapper']}>
+                    <div className={`${styles.close} _icon-close`} onClick={() => setModal()} />
+                    <div className={styles.content}>
+                        <p className={styles.title}>Добавить комментарий</p>
+                        <form method='POST' onSubmit={handleSubmit(onSubmit)} className={styles.form} id='add-comment' >
+                            <div className={styles.inputs}>
+                                <TextInput
+                                    register={register}
+                                    required={true}
+                                    error={errors.author}
+                                    isTextArea={false}
+                                    placeholderText={'Имя'}
+                                    name="author"
                                 />
-                            </form>
-                        </div>
+                                <TextInput
+                                    register={register}
+                                    required={true}
+                                    error={errors.text}
+                                    isTextArea={true}
+                                    placeholderText={'Комментарий'}
+                                    name="text"
+                                />
+                            </div>
+                            <Button 
+                                clickFn={() => {}}
+                                text="Сохранить"
+                                addedClass={[ButtonsClasses.SAVE_CHANGES]}
+                                isPlusExist={false}
+                                isFormSender={true}
+                                formId='add-comment'
+                            />
+                        </form>
                     </div>
                 </div>
-            </Modal>
-        )
-    } else {
-        return (
-            <> </>
-        )
-    }
+            </div>
+        </Modal>
+    )
 }
 
 export default ComPopUp

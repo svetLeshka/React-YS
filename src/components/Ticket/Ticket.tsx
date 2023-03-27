@@ -13,10 +13,12 @@ const Ticket = () => {
     const ticketq: ITicket = useSelector((state: IInitialValue) => state['tasks'][Number(id)]);
     const dispatch = useDispatch();
     useEffect(() => {
-      dispatch(updateEditingTicket({...ticketq, id: id}))
-     }, [dispatch, ticketq.stage, ticketq.title, ticketq.desc, ticketq.tags, ticketq.comments, ticketq, id]);
+      if(ticketq) {
+        dispatch(updateEditingTicket({...ticketq, id: id}))
+      }
+     }, [dispatch, ticketq, id]);
     const ticket = useSelector((state: IInitialValue) => state['editingTask']);
-    const title = ticket.stage[0].toUpperCase() + ticket.stage.slice(1);
+    const title = (ticket.stage.length > 0) ? ticket.stage[0].toUpperCase() + ticket.stage.slice(1) : '';
     const [edit, setEdit] = useState(false);
     const editTicket = useCallback(() => {
       setEdit(false);

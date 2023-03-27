@@ -5,7 +5,7 @@ import { ITicket } from 'typings/interfaces';
 import { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import useEditingTicket from 'hooks/useEditingTicket';
-import { updateTicket } from 'store/appSlice';
+import { addTicket } from 'store/appSlice';
 import { Route, Routes, useNavigate } from 'react-router'
 import { TaskActions } from 'constants/constants';
 
@@ -19,8 +19,8 @@ const StageButton = ({ stage }: IStageButtonProps) => {
     const dispatch = useDispatch();
     const updateEditingTicket = useEditingTicket({stage: stage, title: '', desc: '', tags: [], comments: []});
     const updateAfterSave = useCallback((ticket: ITicket) => {
-        dispatch(updateTicket(ticket))
-    }, [dispatch]);
+        dispatch(addTicket({...ticket, stage: stage}))
+    }, [dispatch, stage]);
   return (
     <div className={styles['btn']}>
         <Button
@@ -34,9 +34,10 @@ const StageButton = ({ stage }: IStageButtonProps) => {
             text='Добавить тикет'
             addedClass={['add-ticket']}
             isPlusExist={true}
+            formId={''}
         />
         <Routes>
-            <Route path={`/${TaskActions.CREATE}`} element={<EditingTicketPopUp stage={stage} id={-1} setTicket={updateAfterSave} isEdit={false} setModal={() => setModal(false)} />} />
+            <Route path={`/${TaskActions.CREATE}/*`} element={<EditingTicketPopUp stage={stage} id={-1} setTicket={updateAfterSave} isEdit={false} setModal={() => setModal(false)} />} />
         </Routes>
     </div>
   )

@@ -7,6 +7,7 @@ import { useSearchParams } from "react-router-dom"
 
 const EditingTicketPopUp = ({ stage, id, setModal, isEdit, setTicket }) => {
   const linkId = useParams();
+  // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   if(linkId.id === id || (searchParams.get('stage') && searchParams.get('stage') === stage)) {

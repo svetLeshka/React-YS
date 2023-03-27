@@ -1,6 +1,6 @@
 import styles from "./styles.module.css"
 
-const Button = ({addedClass, clickFn, text, isPlusExist, isFormSender = false}) => {
+const Button = ({addedClass, clickFn, text, isPlusExist, isFormSender = false, formId}) => {
     const classes = addedClass.reduce((acc, cur, index) => {
         if(index === 1) return styles[acc] + ' ' + styles[cur];
         else if(index === addedClass.length) return acc + styles[cur];
@@ -12,17 +12,18 @@ const Button = ({addedClass, clickFn, text, isPlusExist, isFormSender = false}) 
             type='submit'
             onClick={clickFn}
             className={`${styles['btn']} ${classes}`}
+            form={formId}
         >
             {Boolean(isPlusExist) && <span className={styles['with-plus']}></span>}
             <span className={styles['text']}>{text}</span>
         </button>
       )
-    }
-    else {
+    } else {
       return (
         <button
             onClick={clickFn}
             className={`${styles['btn']} ${classes}`}
+            type="button"
         >
             {Boolean(isPlusExist) && <span className={styles['with-plus']}></span>}
             <span className={styles['text']}>{text}</span>

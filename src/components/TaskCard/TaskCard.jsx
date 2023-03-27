@@ -41,9 +41,8 @@ const TaskCard = ({id}) => {
             <TaskCardHeader id={id} />
             <TaskCardContent id={id} />
             <Routes>
-              <Route path={`/${TaskActions.EDIT}/:id`} element={<EditingTicketPopUp setTicket={() => updateAfterSave()} isEdit={true} isNew={false} id={id} setModal={toggleTicket} />} />
+              <Route path={`/${TaskActions.EDIT}/:id/*`} element={<EditingTicketPopUp setTicket={() => updateAfterSave()} isEdit={true} isNew={false} id={id} setModal={toggleTicket} />} />
             </Routes>
-            {/* {Boolean(isModalShown) && <EditingTicketPopUp setTicket={() => updateAfterSave()} isEdit={true} isNew={false} id={id} setModal={toggleTicket} />} */}
         </div>
   )
 }

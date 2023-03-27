@@ -39,22 +39,11 @@ const initialValue = {
     },
     editingTask: {
         id: -1,
-        stage: 'todo',
-        title: "Нарисовать иллюстрации",
-        desc: '123',
-        tags: ["violet", 'green'],
-        comments: [
-            {
-                id: 1,
-                author: 'Иванов Иван',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
-            },
-            {
-                id: 2,
-                author: 'Иванов Иван',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '
-            }
-        ]
+        stage: '',
+        title: "",
+        desc: '',
+        tags: [],
+        comments: []
     },
     filters: {
         com: {
@@ -154,6 +143,28 @@ export const appSlice = createSlice({
             if(p.desc !== undefined) t.desc = p.desc;
             if(p.tags !== undefined) t.tags = p.tags;
             if(p.comments !== undefined) t.comments = p.comments;
+        },
+        addTicket: (state, action) => {
+            const p = action.payload;
+            let t;
+            let c = 0;
+            for(const key of Object.keys(state.tasks)){
+                if(Number(key) === c) {
+                    c++;
+                } else {
+                    break;
+                }
+            }
+            state.tasks[c] = t = {};
+            if(p.stage !== undefined) t.stage = p.stage;
+            if(p.title !== undefined) t.title = p.title;
+            if(p.desc !== undefined) t.desc = p.desc;
+            t.tags = [];
+            t.comments = [];
+        },
+        deleteTicket: (state, action) => {
+            const id = parseInt(action.payload);
+            delete state.tasks[id];
         }
     }
 })
@@ -168,7 +179,9 @@ export const {
     updateTicket,
     updateEditingTicket,
     changeNewTagsInEditing,
-    changeNewComsInEditing
+    changeNewComsInEditing,
+    addTicket,
+    deleteTicket
 } = appSlice.actions;
 
 export default appSlice.reducer;

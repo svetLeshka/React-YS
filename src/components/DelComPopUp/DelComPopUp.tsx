@@ -21,8 +21,8 @@ const DelComPopUp = ({ isShow, setModal }: IDelComPopUpProps) => {
                     <div className={styles['wrapper']}>
                         <p className={styles.title}>Удалить тикет?</p>
                         <div className={styles.btns}>
-                            <Button addedClass={['small-btn']} clickFn={() => setModal(false)} text={'Да'} isPlusExist={false} />
-                            <Button addedClass={['small-btn']} clickFn={() => setModal(false)} text={'Нет'} isPlusExist={false} />
+                            <Button addedClass={['small-btn']} clickFn={() => setModal(true)} text={'Да'} isPlusExist={false} formId={''} />
+                            <Button addedClass={['small-btn']} clickFn={() => setModal(false)} text={'Нет'} isPlusExist={false} formId={''} />
                         </div>
                     </div>
                 </div>
