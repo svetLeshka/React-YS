@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2b72300d.css",
+    "main.js": "/static/js/main.6198c75c.js",
+    "static/media/YandexSansText-Thin.ttf": "/static/media/YandexSansText-Thin.cb30a838525420b2e299.ttf",
+    "static/media/YandexSansText-Medium.ttf": "/static/media/YandexSansText-Medium.1a767a2ef3ff8c207f82.ttf",
+    "static/media/YandexSansText-Bold.ttf": "/static/media/YandexSansText-Bold.60bb95175b8a8775639e.ttf",
+    "static/media/YandexSansText-Regular.ttf": "/static/media/YandexSansText-Regular.1a3aa4c8d33c3b216bb3.ttf",
+    "static/media/YandexSansText-Medium.woff": "/static/media/YandexSansText-Medium.6b83f25f39c3f10cc22e.woff",
+    "static/media/YandexSansText-Bold.woff": "/static/media/YandexSansText-Bold.93ad5a0a463082e24771.woff",
+    "static/media/YandexSansText-Thin.woff": "/static/media/YandexSansText-Thin.7816ea3c2e1552397b56.woff",
+    "static/media/YandexSansText-Regular.woff": "/static/media/YandexSansText-Regular.1c422f2ef1e510532200.woff",
+    "static/media/YandexSansText-Medium.woff2": "/static/media/YandexSansText-Medium.43fa0def7951e857f96c.woff2",
+    "static/media/YandexSansText-Bold.woff2": "/static/media/YandexSansText-Bold.b7699b9b700ad29caa9b.woff2",
+    "static/media/YandexSansText-Regular.woff2": "/static/media/YandexSansText-Regular.fd627cc781ea46efb18f.woff2",
+    "static/media/YandexSansText-Thin.woff2": "/static/media/YandexSansText-Thin.96a502b3a4a9218ef6c5.woff2",
+    "static/media/iconfont.svg?6zqavm": "/static/media/iconfont.36ef5fef485e94e12580.svg",
+    "static/media/iconfont.eot?6zqavm": "/static/media/iconfont.72ffe6dc06c40b66a1d5.eot",
+    "static/media/iconfont.woff?6zqavm": "/static/media/iconfont.6c1d439eeda1626f701f.woff",
+    "static/media/iconfont.ttf?6zqavm": "/static/media/iconfont.77461ae2cc2d179e8a43.ttf",
+    "index.html": "/index.html",
+    "main.2b72300d.css.map": "/static/css/main.2b72300d.css.map",
+    "main.6198c75c.js.map": "/static/js/main.6198c75c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2b72300d.css",
+    "static/js/main.6198c75c.js"
+  ]
+}
