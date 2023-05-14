@@ -11,17 +11,23 @@ const Filters = () => {
         dispatch(changeFilterState(filter));
     }, [dispatch])
     const filters = useSelector(state => state['filters']);
-  return (
-    <div className={styles['filter']}>
-        {
-            Array.from(Object.entries(filters)).map(filter => {
-                return (
-                    <Filter key={filter[0]} entry={filter} clickFn={setFilter} />
-                )
-            })
-        }
-    </div>
-  )
+    if(filters) {
+        return (
+            <div className={styles['filter']}>
+                {
+                    Array.from(Object.entries(filters)).map(filter => {
+                        return (
+                            <Filter key={filter[0]} entry={filter} clickFn={setFilter} />
+                        )
+                    })
+                }
+            </div>
+          )
+    } else {
+        return (
+            <></>
+        )
+    }
 }
 
 export default Filters
