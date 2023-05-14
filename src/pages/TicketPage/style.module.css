@@ -1,0 +1,23 @@
+.wrapper {
+
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 64px;
+}
+
+.arrow {
+    width: 35px;
+    height: 35px;
+}
+
+.header {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
+}

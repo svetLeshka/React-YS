@@ -1,0 +1,40 @@
+$comment-grey: #929292;
+
+.comment {
+
+	&__wrapper {
+
+	}
+
+	&__header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 10px;
+		margin-bottom: 5px;
+	}
+
+	&__title {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 15px;
+	}
+
+	&__close {
+		transition: opacity 0.2s linear;
+		&::before {
+			color: $comment-grey;
+		}
+		&:hover {
+			cursor: pointer;
+			opacity: 0.8;
+		}
+	}
+
+	&__content {
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 19px;
+		color: #565656;
+	}
+}

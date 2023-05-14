@@ -1,0 +1,31 @@
+$ticket-border: #cacaca;
+
+.ticket {
+	&__header {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 19px;
+		margin: 0 66px 14px;
+	}
+
+	&__content {
+		box-shadow: 0 0 0 1px $ticket-border;
+		border-radius: 7px;
+		padding: 14px;
+		margin: 0 59px 64px;
+		box-sizing: border-box;
+	}
+
+	&__text-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-bottom: 14px;
+	}
+
+	&__footer {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+}
