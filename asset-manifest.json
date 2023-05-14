@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/React-YS/static/css/main.a79a9278.css",
+    "main.css": "/React-YS/static/css/main.0e845ecd.css",
     "main.js": "/React-YS/static/js/main.0bf46cb4.js",
     "static/media/YandexSansText-Thin.ttf": "/React-YS/static/media/YandexSansText-Thin.cb30a838525420b2e299.ttf",
     "static/media/YandexSansText-Medium.ttf": "/React-YS/static/media/YandexSansText-Medium.1a767a2ef3ff8c207f82.ttf",
@@ -19,11 +19,11 @@
     "static/media/iconfont.woff?6zqavm": "/React-YS/static/media/iconfont.6c1d439eeda1626f701f.woff",
     "static/media/iconfont.ttf?6zqavm": "/React-YS/static/media/iconfont.77461ae2cc2d179e8a43.ttf",
     "index.html": "/React-YS/index.html",
-    "main.a79a9278.css.map": "/React-YS/static/css/main.a79a9278.css.map",
+    "main.0e845ecd.css.map": "/React-YS/static/css/main.0e845ecd.css.map",
     "main.0bf46cb4.js.map": "/React-YS/static/js/main.0bf46cb4.js.map"
   },
   "entrypoints": [
-    "static/css/main.a79a9278.css",
+    "static/css/main.0e845ecd.css",
     "static/js/main.0bf46cb4.js"
   ]
 }
